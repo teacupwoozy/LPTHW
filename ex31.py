@@ -1,3 +1,12 @@
+# My attempt to make my first python function, without yet know how. What's the worst that could happen!
+def eat_cake():
+    print("The bear uses her snoot to nudge your hand holding the knife. Then, with adorbale eyes, she looks towards the cake.")
+    print("You realize she's a bear and isn't able to cut a slice of cake. So you cut one slice and hold it out to her.")
+    print("With surprisingly good manners, the bear carefully eats the slice of cake from your hand.")
+    print("When she has finished she licks your cheek in gratitude and motions for you to cut yourself a slice.")
+    print("After you've eaten your slice, you and the bear go outside and take a nap under the tree in the yard.")
+
+
 print("""You enter a dark room wih two doors.
 Do you go through door #1 or door #2?""")
 
@@ -26,19 +35,12 @@ if door == "1":
         direction = input("> ")
 
         if direction == "1":
-            print("The bear uses her snoot to nudge your hand holding the knife. Then, with adorbale eyes, she looks towards the cake.")
-            print("You realize she's a bear and isn't able to cut a slice of cake. So you cut one slice and hold it out to her.")
-            print("With surprisingly good manners, the bear carefully eats the slice of cake from your hand.")
-            print("When she has finished she licks your cheek in gratitude and motions for you to cut yourself a slice.")
-            print("After you've eaten your slice, you and the bear go outside and take a nap under the tree in the yard.")
+            eat_cake()
+
         else:
             print("The bear roars mightily. This makes you freeze in your place.")
             print("The bear slowly walks towards you.")
-            print("The bear uses her snoot to nudge your hand holding the knife. Then, with adorbale eyes, she looks towards the cake.")
-            print("You realize she's a bear and isn't able to cut a slice of cake. So you cut one slice and hold it out to her.")
-            print("With surprisingly good manners, the bear carefully eats the slice of cake from your hand.")
-            print("When she has finished she licks your cheek in gratitude and motions for you to cut yourself a slice.")
-            print("After you've eaten your slice, you and the bear go outside and take a nap under the tree in the yard.")
+            eat_cake()
 
     else:
         print(f"Well, doing {bear} is probably better.")
