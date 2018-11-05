@@ -22,9 +22,12 @@ bee_bop = Song(["Doo bee doo bee doo",
 gwar = """rrrraaaaawwwwww.
 gggrrrrraaaawwwww."""
 
+gwar_song = Song([gwar])
+
 happy_bday.sing_me_a_song()
 
 bulls_on_parade.sing_me_a_song()
 
 bee_bop.sing_me_a_song()
 
+gwar_song.sing_me_a_song()
