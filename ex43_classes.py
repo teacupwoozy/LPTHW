@@ -99,7 +99,40 @@ class CentralCorridor(Scene):
 class LaserWeaponArmory(Scene):
 
     def enter(self):
-        pass
+        print(dedent("""
+            You do an overly dramatic, totally unnecessary but really fun, dive
+            roll into the armory. You see the floofy basket, but it is in a 
+            locked glass container with a keypad lock. If you get the code wrong 10 
+            times then the lock closes forever and you can't get the basket of
+            floof. The code is three digits.
+        """))
+
+        # code = f"{randint(1,9) } {randint(1,9)} {randint(1,9)}"
+        # test code generator below. Code will always be 1
+        code = f"{randint(1,1) }"
+        guess = input("[keypad]> ")
+        guesses = 0
+
+        while guess != code and guesses < 10:
+            print("NOPE!") 
+            guesses += 1
+            guess = input("[keypad> ")
+
+        if guess == code:
+            print(dedent("""
+                Woot woot! You're the Mistress of Code-Cracking! You grab the basket
+                and run as fast as you can back to the Bridge where you place the
+                floof basket in just the right spot.
+            """))
+            return 'the_bridge'
+        
+        else:
+            print(dedent("""
+                The lock gives you the NOPE message one last time. Gulp.
+                You await your fate from the other hangry Gothons.
+            """))
+            return 'death'
+            
 
 class TheBridge(Scene):
 
