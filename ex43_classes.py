@@ -28,13 +28,11 @@ class Engine(object):
     
 class Death(Scene):
 
-    # def __init__(self, death):
-    #     self.death = death
-
     death_types = [
         "You are smothered to death by the floof of a million kittens.",
-        "You die from the adorableness of all the puupy boops.",
-        "You die from a dry throat after telling all the world's Very Good Dogs what Good Doggos they are."
+        "You die from the adorableness of all the puppy boops.",
+        "You die from a dry throat after telling all the world's Very Good Dogs what Good Doggos they are.",
+        "You die from the indifference of an indifferent cat."
     ]
 
     def enter(self):
@@ -96,6 +94,7 @@ class CentralCorridor(Scene):
             print("Does not compute!")
             return 'central_corridor'
 
+
 class LaserWeaponArmory(Scene):
 
     def enter(self):
@@ -107,9 +106,9 @@ class LaserWeaponArmory(Scene):
             floof. The code is three digits.
         """))
 
-        # code = f"{randint(1,9) } {randint(1,9)} {randint(1,9)}"
+        code = f"{randint(1,9) } {randint(1,9)} {randint(1,9)}"
         # test code generator below. Code will always be 1
-        code = f"{randint(1,1) }"
+        # code = f"{randint(1,1) }"
         guess = input("[keypad]> ")
         guesses = 0
 
@@ -180,9 +179,9 @@ class EscapePod(Scene):
             Which one do you take?
         """))
 
-        # good_pod = randint(1,5)
+        good_pod = randint(1,5)
         # For testing. Delete when program finished.
-        good_pod = randint(1,1)
+        # good_pod = randint(1,1)
         guess = input("[pod #]> ")
 
         if int(guess) != good_pod:
@@ -229,16 +228,6 @@ class Map(object):
     def opening_scene(self):
         return self.next_scene(self.start_scene)
 
-# Ways to die
-# death_by_kittens = Death("You are smothered to death by the floof of a million kittens.")
-# death_by_puppies = Death("You die from the adorableness of all the boops.")
-# # death_by_kittens.enter()
-# death_by_puppies.enter()
-
-
 a_map = Map('central_corridor')
 a_game = Engine(a_map)
 a_game.play()
-
-
-
