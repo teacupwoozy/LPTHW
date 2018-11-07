@@ -173,7 +173,33 @@ class TheBridge(Scene):
 class EscapePod(Scene):
 
     def enter(self):
-        pass
+        print(dedent("""
+            You rush through the ship desparate to reach the escape pod before the
+            Gothons finish their bag of trail mix. You get to the champer with the
+            escape pods. There are five of them, but any of them might be damaged.
+            Which one do you take?
+        """))
+
+        # good_pod = randint(1,5)
+        # For testing. Delete when program finished.
+        good_pod = randint(1,1)
+        guess = input("[pod #]> ")
+
+        if int(guess) != good_pod:
+            print(dedent(f"""
+                You jump into pod {guess} with your floof basket of adorable puppies 
+                and hit the eject button. The outer door opens, but your don't eject. Uh oh.
+            """))
+            return 'death'
+
+        else:
+            print(dedent(f"""
+                You jump into pod {guess} with your floof basket of adorable puppies 
+                and hit the eject button. The outer door opens and you blast out into space.
+                You and the basket of adorable puppies will soon be home where you can also
+                play with your gaggle of baby goats. You win life!
+            """))
+            return 'finished'
 
 
 class Map(object):
