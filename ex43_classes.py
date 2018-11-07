@@ -1,7 +1,13 @@
+from sys import exit
+from random import randint
+from textwrap import dedent
+
+
 class Scene(object):
 
     def enter(self):
-        pass
+        print("Need to add lots more stuff here.")
+        exit
 
 
 class Engine(object):
@@ -10,12 +16,17 @@ class Engine(object):
         pass
 
     def play(self):
-        pass
+        print("Need to play a game here.")
+        exit
     
 class Death(Scene):
 
+    def __init__(self, death):
+        self.death = death
+
     def enter(self):
-        pass
+        print(f"So sad, you're dead via: {self.death}")
+        exit
 
 class CentralCorridor(Scene):
 
@@ -49,7 +60,15 @@ class Map(object):
     def opening_scene(self):
         pass
 
+# Ways to die
+death_by_kittens = Death("You are smothered to death by the floof of a million kittens.")
+death_by_puppies = Death("You die from the adorableness of all the boops.")
 
-a_map = Map('central_corridor')
-a_game = Engine(a_map)
-a_game.play()
+# a_map = Map('central_corridor')
+# a_game = Engine(a_map)
+# a_game.play()
+
+
+
+death_by_kittens.enter()
+death_by_puppies.enter()
