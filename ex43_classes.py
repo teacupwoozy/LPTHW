@@ -7,17 +7,24 @@ class Scene(object):
 
     def enter(self):
         print("Need to add lots more stuff here.")
-        exit
+        exit(1)
 
 
 class Engine(object):
 
     def __init__(self, scene_map):
-        pass
+        self.scene_map = scene_map
 
     def play(self):
-        print("Need to play a game here.")
-        exit
+        current_scene = self.scene_map.opening_scene()
+        last_scene = self.scene_map.next_scene("pau")
+
+        while current_scene != last_scene:
+            next_scene_name = current_scene.enter()
+            current_scene = self.scene_map.next_scene(next_scene_name)
+        
+        current_scene.enter()
+
     
 class Death(Scene):
 
@@ -63,12 +70,14 @@ class Map(object):
 # Ways to die
 death_by_kittens = Death("You are smothered to death by the floof of a million kittens.")
 death_by_puppies = Death("You die from the adorableness of all the boops.")
-
-# a_map = Map('central_corridor')
-# a_game = Engine(a_map)
-# a_game.play()
+# death_by_kittens.enter()
+# death_by_puppies.enter()
 
 
+a_map = Map('central_corridor')
+a_game = Engine(a_map)
+a_game.play()
 
-death_by_kittens.enter()
-death_by_puppies.enter()
+
+
+
