@@ -202,6 +202,12 @@ class EscapePod(Scene):
             return 'finished'
 
 
+class Finished(Scene):
+
+    def enter(self):
+        print("You Won! You and the adorable puppies are the best!")
+
+
 class Map(object):
 
     scenes = {
@@ -210,7 +216,7 @@ class Map(object):
         'the_bridge': TheBridge(),
         'escape_pod': EscapePod(),
         'death': Death(),
-        # 'finished': Finished(),
+        'finished': Finished(),
     }
 
     def __init__(self, start_scene):
