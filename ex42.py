@@ -15,6 +15,9 @@ class Cat(Animal):
     def __init__(self, name):
         ## Cat has-a name
         self.name = name
+    
+    def meow():
+        print("Everyday is caturday.")
 
 ## Person is-a object
 class Person(object):
@@ -37,7 +40,15 @@ class Employee(Person):
 
 ## Fish is-a object
 class Fish(object):
-    pass
+    
+    def __init__(self, name):
+        self.name = name
+
+    def fishface(self):
+        print("Every face is a fishface.")
+
+    def fish_list(self):
+        print(f"I have things to say: {self.name}")
 
 ## Salmon is-a Fish
 class Salmon(Fish):
@@ -67,10 +78,14 @@ frank = Employee("Frank", 120000)
 frank.pet = rover
 
 ## flipper is a Fish
-flipper = Fish()
+flipper = Fish("Flipper")
 
 ## crouse is-a Salmon
-crouse = Salmon()
+crouse = Salmon("Totally not a fish.")
 
 ## harry is-a Halibut
-harry = Halibut()
+harry = Halibut("I'm sorry, I did it for the halibut.")
+
+flipper.fishface()
+flipper.fish_list()
+crouse.fish_list()
