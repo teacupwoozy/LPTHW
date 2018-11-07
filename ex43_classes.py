@@ -137,7 +137,38 @@ class LaserWeaponArmory(Scene):
 class TheBridge(Scene):
 
     def enter(self):
-        pass
+        print(dedent("""
+            You bust onto the Bridge with the floof basket under your arm. There
+            are at least 12 hangry Gothons who are trying to take control of the ship.
+            They haven't drawn their super soakers yet, as they see you have a floof
+            basket under your arm and they don't want to draw attention to it because 
+            then the adorable puppies will notice it too. 
+        """))
+
+        action = input("> ")
+
+        if action == "throw the floof basket":
+            print(dedent("""
+                In a panic, you throw the floof basket to the floor where the hangriest
+                Gothon picks it up and eats it. 
+            """))
+            return 'death'
+
+        elif action == "gently place the floof basket":
+            print(dedent("""
+                You gently place the floof basket on the floor. Since all puppies can
+                hear the gentle placement of a floof basket onto the floor from 2,000 kms
+                away, the adorable puppies all break free from their captors and come running.
+                They pile into the floof basket. You carefully pick up the floof basket 
+                that is practically overflowing with adorable puppies. You slowly back
+                out the door, throw an entire bag of trail mix towards the hangry Gothons 
+                and then close the door behind you. Now you can run to the escape pod.
+            """))
+            return 'escape_pod'
+
+        else:
+            print("Does not compute!")
+
 
 class EscapePod(Scene):
 
