@@ -23,7 +23,7 @@ class Engine(object):
             next_scene_name = current_scene.enter()
             current_scene = self.scene_map.next_scene(next_scene_name)
         
-        current_scene.enter()
+        # current_scene.enter()
 
     
 class Death(Scene):
@@ -31,9 +31,16 @@ class Death(Scene):
     def __init__(self, death):
         self.death = death
 
+    death_types = ["You are smothered to death by the floof of a million kittens.",
+                    "You die from the adorableness of all the puupy boops.",
+                    "You die from a dry throat after telling all the world's Very Good Dogs what Good Doggos they are."]
+
     def enter(self):
-        print(f"So sad, you're dead via: {self.death}")
-        exit
+        # print(f"So sad, you're dead via: {self.death}")
+        print(Death.death_types[randint(0, len(self.death_types)-1)])
+        exit(1)
+
+    
 
 class CentralCorridor(Scene):
 
@@ -77,7 +84,6 @@ death_by_puppies = Death("You die from the adorableness of all the boops.")
 a_map = Map('central_corridor')
 a_game = Engine(a_map)
 a_game.play()
-
 
 
 
