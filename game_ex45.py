@@ -9,10 +9,16 @@ class Scene(object):
 class Engine(object):
 
     def __init__(self, scene_map):
-        pass
+        self.scene_map = scene_map
     
     def play(self):
-        pass
+        current_scene = self.scene_map.opening_scene()
+        last_scene = self.scene_map.next_scene("pau")
+
+        while current_scene != last_scene:
+            next_scene_name = current_scene.enter()
+            current_scene = self.scene_map.next_scene(next_scene_name)
+
 
 
 class RacistsRoom(Scene):
@@ -27,7 +33,7 @@ class KittensPuppies(Scene):
         pass
 
 
-class MisogynistMeeting(Scene):
+class MensRightsConference(Scene):
 
     def enter(self):
         pass
@@ -36,8 +42,46 @@ class MisogynistMeeting(Scene):
 class CollaborationCenter(Scene):
 
     def enter(self):
-        pass
+        print("""
+            You are living in the United States of America in the year 2018.
+            The whole country is in shambles because a huge percentage of the
+            population have been emboldened by a lying, self-serving, racist, 
+            misogynist President. He feeds these people's fears with lies, 
+            propaganda, and his relentless tirade of racist comments.
 
+            As a level-headed, thinking, feeling human being, your mission is 
+            to defeat these terrible inclinations of the Evil Ones and help 
+            them to return to sense and abandon their hate-filled ways.
+
+            By doing this, youl will save countless lives in the United States 
+            and aroung the world. 
+
+            You are currently in the Collaboration Center, surrounded by others
+            who are also fighting the Evil Ones. Where do you want to go to 
+            start your fight: Washington DC, an alt-right meeting, nearby 
+            national park, or a men's rights conference?
+        """)
+
+        action = input("👩🏼‍🎤 >  ")
+
+        if action == "Washington DC":
+            print("DC")
+        
+        elif action == "alt-right":
+            print("alt-right")
+
+        elif action == "national park":
+            print("national park")
+
+        elif action == "conference":
+            print("men's rights conference")
+
+        else:
+            print("That's not an option")
+            return "collaboration_center"
+
+    def repeat_entry(self):
+        pass
 
 class WashingtonDC(Scene):
 
@@ -113,7 +157,7 @@ class Map(object):
     scenes = {
         "racists_room": RacistsRoom(),
         "kittens_puppies": KittensPuppies(),
-        "mysogynist_meeting": MisogynistMeeting(),
+        "mens_rights_conference": MensRightsConference(),
         "collaboration_center": CollaborationCenter(),
         "washington_dc": WashingtonDC(),
         "national_parks": NationalParks(),
