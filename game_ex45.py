@@ -24,7 +24,7 @@ class Engine(object):
 class RacistsRoom(Scene):
 
     def enter(self):
-        pass
+        print("Hallo rr")
 
 
 class KittensPuppies(Scene):
@@ -36,7 +36,7 @@ class KittensPuppies(Scene):
 class MensRightsConference(Scene):
 
     def enter(self):
-        pass
+        print("Hallo men's rights")
 
 
 class CollaborationCenter(Scene):
@@ -66,15 +66,19 @@ class CollaborationCenter(Scene):
 
         if action == "Washington DC":
             print("DC")
+            return "washington_dc"
         
         elif action == "alt-right":
             print("alt-right")
+            return "racists_room"
 
         elif action == "national park":
             print("national park")
+            return "national_parks"
 
         elif action == "conference":
             print("men's rights conference")
+            return "mens_rights_conference"
 
         else:
             print("That's not an option")
@@ -86,13 +90,13 @@ class CollaborationCenter(Scene):
 class WashingtonDC(Scene):
 
     def enter(self):
-        pass
+        print("Hallo DC")
 
 
 class NationalParks(Scene):
 
     def enter(self):
-        pass
+        print("Hallo Nat'l parks!")
 
 
 class Recharge(Scene):
