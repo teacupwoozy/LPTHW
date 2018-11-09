@@ -102,3 +102,41 @@ class AlliesElected(Scene):
     def enter(self):
         pass
 
+
+class YouWin(Scene):
+    
+    def enter(self):
+        print("You won! We have defeated evil!")
+
+
+class Map(object):
+    scenes = {
+        "racists_room": RacistsRoom(),
+        "kittens_puppies": KittensPuppies(),
+        "mysogynist_meeting": MisogynistMeeting(),
+        "collaboration_center": CollaborationCenter(),
+        "washington_dc": WashingtonDC(),
+        "national_parks": NationalParks(),
+        "recharge": Recharge(),
+        "convert_evil_ones": ConvertEvilOnes(),
+        "be_an_ally": BeAnAlly(),
+        "empathy_magic_spell": EmpathyMagicSpell(),
+        "setback": SetBack(),
+        "allies_elected": AlliesElected(),
+        "you_win": YouWin(),
+    }
+
+    def __init__(self, start_scene):
+        self.start_scene = start_scene
+
+    def next_scene(self, scene_name):
+        val = Map.scenes.get(scene_name)
+        return val
+    
+    def opening_scene(self):
+        return self.next_scene(self.start_scene)
+
+
+a_map = Map('collaboration_center')
+a_game = Engine(a_map)
+a_game.play()
