@@ -1,4 +1,5 @@
 from sys import exit
+from random import randint
 
 class Scene(object):
 
@@ -18,7 +19,6 @@ class Engine(object):
         while current_scene != last_scene:
             next_scene_name = current_scene.enter()
             current_scene = self.scene_map.next_scene(next_scene_name)
-
 
 
 class RacistsRoom(Scene):
@@ -101,8 +101,23 @@ class NationalParks(Scene):
 
 class Recharge(Scene):
 
+    rehcarge_types = [
+        "You see Alicia Garza give a completely amazing and inspirational talk",
+        "Rewatch a video of Maya Angelou's reciting her poem 'On the Pulse of Morning. For the hundredth time.",
+        "moar inspo",
+        "moar moar inspo",
+        "yet moar inspo, inspo"
+    ]
+
     def enter(self):
-        pass
+        print("""
+            Fighting against hate is hard work and it's draining. You've got
+            to take care of yourself and others. So it's smart that you've 
+            come to recharge. We'll have you recharged and back in fighting 
+            form so soon! While in the Recharge Room you:
+        """)
+        print(Recharge.rehcarge_types[randint(0, len(self.rehcarge_types)-1)])
+        exit(1)
 
 
 class ConvertEvilOnes(Scene):
@@ -151,6 +166,12 @@ class AlliesElected(Scene):
         pass
 
 
+class WhereNext(Scene):
+
+    def where_to(self):
+        print("Now that you've finished with that. Where do you want to go to next?")
+        print("")
+
 class YouWin(Scene):
     
     def enter(self):
@@ -187,4 +208,6 @@ class Map(object):
 
 a_map = Map('collaboration_center')
 a_game = Engine(a_map)
-a_game.play()
+# a_game.play()
+test = Recharge()
+test.enter()
