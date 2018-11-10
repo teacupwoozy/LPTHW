@@ -111,6 +111,7 @@ class WashingtonDC(Scene):
                 A. Check out the newest restaurants
                 B. Attend an organizing meeting
                 C. Find a hotel
+                D. Go for a walk
             """)
         
         guess = input("👩🏼‍🎤> ").upper()
@@ -141,10 +142,43 @@ class WashingtonDC(Scene):
             return "washington_dc"
 
 
+    def street_meeting(self):
+
+
+
 class NationalParks(Scene):
 
     def enter(self):
-        print("Hallo Nat'l parks!")
+        print("""
+            The Administration has been busy leasing off National Parklands
+            to private industry. These businesses are clearcutting the forests,
+            drilling for oil and national gas in fragile ecosystems, and
+            they've diverted water which is destroying critical watersheds.
+            National Park employees have been pleading with the public to help
+            them to save these critical lands.
+
+            People are decending on Parks across the country, blocking the
+            roads and preventing drilling and logging equipment from getting
+            in or out. 
+
+            There are massive boycotts of these major companies. Gasoline
+            consumption has been cut in half, purchases of home electronics
+            have collapsed, and people have revived Victory Gardens which has
+            resulted in grocery store sales dropping by more than 30%.
+
+            You have been part of the successful road bloqueos that are now
+            impacting the transport of food and goods all over the country.
+
+            In the fifth week of these protests, some of the companies leasing
+            lands have moved to cancel their leases. And, politicians in DC
+            are quickly pushing new legislation through that will halt the 
+            President's ability to lease these lands. They have the votes to
+            override a veto.
+        """)
+
+        convert = ConvertEvilOnes()
+        return convert.convert_politicians()
+        
 
 
 class Recharge(Scene):
@@ -181,6 +215,7 @@ class ConvertEvilOnes(Scene):
     
     def convert_politicians(self):
         print("they find their spines")
+        return "where_next"
 
 
 class BeAnAlly(Scene):
