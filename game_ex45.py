@@ -121,9 +121,15 @@ class WashingtonDC(Scene):
             return dilly_dally.dilly_dally()
         
         elif guess == "B":
-            print("power to the people")
-            # again, not working
-            return "where_next"
+            print("""
+                More than 1 million people invade the hallways of the Congressional 
+                Offices and surrounding streets. The spineless Congresspeople 
+                who had refused to stand up to the President are now more
+                afraid of winning their next elections than they are of the 
+                racist President.
+            """)
+            convert = ConvertEvilOnes()
+            return convert.convert_politicians()
         
         elif guess == "C":
             print("There are 1 million people protesting in DC right now.")
@@ -172,6 +178,9 @@ class ConvertEvilOnes(Scene):
 
     def personal_connection(self):
         pass
+    
+    def convert_politicians(self):
+        print("they find their spines")
 
 
 class BeAnAlly(Scene):
