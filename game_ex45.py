@@ -122,9 +122,13 @@ class WashingtonDC(Scene):
         
         elif guess == "B":
             print("power to the people")
+            # again, not working
+            return "where_next"
         
         elif guess == "C":
-            print("how cute")
+            print("There are 1 million people protesting in DC right now.")
+            print("Everything is booked solid. Why don't you do something productive?")
+            return "washington_dc"
 
         else:
             print("That is not an option")
