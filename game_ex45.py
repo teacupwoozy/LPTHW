@@ -136,6 +136,10 @@ class WashingtonDC(Scene):
             print("There are 1 million people protesting in DC right now.")
             print("Everything is booked solid. Why don't you do something productive?")
             return "washington_dc"
+        
+        elif guess == "D":
+            book = ConvertEvilOnes()
+            return book.read_book()
 
         else:
             print("That is not an option")
@@ -143,7 +147,7 @@ class WashingtonDC(Scene):
 
 
     def street_meeting(self):
-
+        pass
 
 
 class NationalParks(Scene):
@@ -208,7 +212,33 @@ class ConvertEvilOnes(Scene):
         pass
 
     def read_book(self):
-        pass
+        print("""
+            On your walk, you stop to sit on a park bench. After a little
+            while an ederly white man in a suit sits down on the bench next
+            to you. He looks very, very tired.
+
+            After a while, he sees that you're holding Austin Channing Brown's 
+            book 'I'm Still Here: Black Dignity in a World Made for 
+            Whiteness,' and asks what it's about. You explain just a little
+            bit about it. He hrumphs. 
+
+            You tell him you haven't finished it yet, but it's really been
+            making you reflect on your life and society-at-large. Slightly
+            less skeptical, he hmmmm's.
+
+            You tell him you've got to go and as you get up, you hold the 
+            book out to him. 'Give it a try,' you say, and he takes it, then
+            you walk away.
+
+            It turns out that the grumpy old white man was a senator. And he
+            actually read the book, which had a powerful impact on him. It
+            took more work on his part, but within a year he became an
+            outspoken ally and advocate for minorities.
+
+            His support becomes a key factor in reversing some of the most 
+            discriminatory Executive Orders that are on the books.
+        """)
+        return "where_next"
 
     def personal_connection(self):
         pass
