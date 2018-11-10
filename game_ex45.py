@@ -19,6 +19,8 @@ class Engine(object):
         while current_scene != last_scene:
             next_scene_name = current_scene.enter()
             current_scene = self.scene_map.next_scene(next_scene_name)
+        
+        # current_scene.enter()
 
 
 class RacistsRoom(Scene):
@@ -62,6 +64,7 @@ class CollaborationCenter(Scene):
             national park, or a men's rights conference?
         """)
 
+        # Change this into a method - along with the one in WhereNext
         action = input("👩🏼‍🎤 >  ")
 
         if action == "Washington DC":
@@ -101,7 +104,7 @@ class NationalParks(Scene):
 
 class Recharge(Scene):
 
-    rehcarge_types = [
+    recharge_types = [
         "You see Alicia Garza give a completely amazing and inspirational talk",
         "Rewatch a video of Maya Angelou's reciting her poem 'On the Pulse of Morning. For the hundredth time.",
         "moar inspo",
@@ -116,9 +119,9 @@ class Recharge(Scene):
             come to recharge. We'll have you recharged and back in fighting 
             form so soon! While in the Recharge Room you:
         """)
-        print(Recharge.rehcarge_types[randint(0, len(self.rehcarge_types)-1)])
-        exit(1)
-
+        print(Recharge.recharge_types[randint(0, len(self.recharge_types)-1)])
+        # This is not working and I don't know why. Oof.
+        return "where_next"
 
 class ConvertEvilOnes(Scene):
 
@@ -167,10 +170,36 @@ class AlliesElected(Scene):
 
 
 class WhereNext(Scene):
-
+    
     def where_to(self):
-        print("Now that you've finished with that. Where do you want to go to next?")
-        print("")
+        print("""
+            Now that you've finished with that. Where do you want to go to 
+            next: Washington DC, an alt-right meeting, nearby national park, 
+            or a men's rights conference?
+        """)
+        
+        action = input("👩🏼‍🎤 >  ")
+
+        if action == "Washington DC":
+            print("DC")
+            return "washington_dc"
+        
+        elif action == "alt-right":
+            print("alt-right")
+            return "racists_room"
+
+        elif action == "national park":
+            print("national park")
+            return "national_parks"
+
+        elif action == "conference":
+            print("men's rights conference")
+            return "mens_rights_conference"
+
+        else:
+            print("That's not an option")
+            return "where_next"
+
 
 class YouWin(Scene):
     
@@ -179,6 +208,7 @@ class YouWin(Scene):
 
 
 class Map(object):
+
     scenes = {
         "racists_room": RacistsRoom(),
         "kittens_puppies": KittensPuppies(),
@@ -192,6 +222,7 @@ class Map(object):
         "empathy_magic_spell": EmpathyMagicSpell(),
         "setback": SetBack(),
         "allies_elected": AlliesElected(),
+        "where_next": WhereNext(),
         "you_win": YouWin(),
     }
 
