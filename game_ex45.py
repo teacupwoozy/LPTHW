@@ -203,8 +203,8 @@ class Recharge(Scene):
             form so soon! While in the Recharge Room you:
         """)
         print(Recharge.recharge_types[randint(0, len(self.recharge_types)-1)])
-        # This is not working and I don't know why. Oof.
-        return "where_next"
+        where_next = WhereNext()
+        return where_next.where_to()
 
 class ConvertEvilOnes(Scene):
 
@@ -238,14 +238,16 @@ class ConvertEvilOnes(Scene):
             His support becomes a key factor in reversing some of the most 
             discriminatory Executive Orders that are on the books.
         """)
-        return "where_next"
+        where_next = WhereNext()
+        return where_next.where_to()
 
     def personal_connection(self):
         pass
     
     def convert_politicians(self):
         print("they find their spines")
-        return "where_next"
+        where_next = WhereNext()
+        return where_next.where_to()
 
 
 class BeAnAlly(Scene):
@@ -314,7 +316,7 @@ class WhereNext(Scene):
 
         else:
             print("That's not an option")
-            return "where_next"
+            return where_to()
 
 
 class YouWin(Scene):
