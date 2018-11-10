@@ -69,6 +69,7 @@ class CollaborationCenter(Scene):
 
         if action == "Washington DC":
             print("DC")
+            # return "washington_dc"
             return "washington_dc"
         
         elif action == "alt-right":
@@ -93,7 +94,41 @@ class CollaborationCenter(Scene):
 class WashingtonDC(Scene):
 
     def enter(self):
-        print("Hallo DC")
+        print("""
+            The President has demanded Congress pass legislation that will
+            deport all citizens and residents who were not born in the United
+            States and have less than $1 million in assets.
+
+            Congress has rolled over to this terrible President and no longer
+            serves as a separate branch of the government. So this request, 
+            like all the others, they will do.
+
+            The People of the United States are enraged about this, and have 
+            been showing up to the capital for the past couple of days. You
+            have also just arrived.
+
+            What is the first thing you do:
+                A. Check out the newest restaurants
+                B. Attend an organizing meeting
+                C. Find a hotel
+            """)
+        
+        guess = input("👩🏼‍🎤> ").upper()
+
+        if guess == "A":
+            print("lame-o")
+            dilly_dally = SetBack()
+            return dilly_dally.dilly_dally()
+        
+        elif guess == "B":
+            print("power to the people")
+        
+        elif guess == "C":
+            print("how cute")
+
+        else:
+            print("That is not an option")
+            return "washington_dc"
 
 
 class NationalParks(Scene):
@@ -163,6 +198,9 @@ class SetBack(Scene):
     def natural_resources_selloff(self):
         pass
 
+    def dilly_dally(self):
+        print("dilly dally")
+
 class AlliesElected(Scene):
 
     def enter(self):
@@ -170,7 +208,7 @@ class AlliesElected(Scene):
 
 
 class WhereNext(Scene):
-    
+
     def where_to(self):
         print("""
             Now that you've finished with that. Where do you want to go to 
@@ -178,7 +216,7 @@ class WhereNext(Scene):
             or a men's rights conference?
         """)
         
-        action = input("👩🏼‍🎤 >  ")
+        action = input("👩🏼‍🎤>  ")
 
         if action == "Washington DC":
             print("DC")
@@ -239,6 +277,6 @@ class Map(object):
 
 a_map = Map('collaboration_center')
 a_game = Engine(a_map)
-# a_game.play()
-test = Recharge()
-test.enter()
+a_game.play()
+# test = Recharge()
+# test.enter()
