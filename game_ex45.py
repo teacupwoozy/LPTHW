@@ -6,7 +6,8 @@ solved_scenes = {
     "read_book": 0,
     "personal_connection": 0,
     "convert_politicians": 0,
-    "national_park": 0
+    "national_park": 0,
+    "allies_elected": 0
 }
 
 # solved_scene_totals = sum(solved_scenes.values())
@@ -167,8 +168,8 @@ class NationalParks(Scene):
 
     def enter(self):
 
+        # Incriment count for national park
         solved_scenes["national_park"] += 1
-
         solved_scene_totals = sum(solved_scenes.values())
         # testing - remove later
         print(solved_scene_totals)
@@ -224,7 +225,7 @@ class Recharge(Scene):
         """)
         print(Recharge.recharge_types[randint(0, len(self.recharge_types)-1)])
         where_next = WhereNext()
-        return where_next.where_to()
+        return where_next.check_if_won() 
 
 class ConvertEvilOnes(Scene):
 
@@ -271,7 +272,7 @@ class ConvertEvilOnes(Scene):
         """)
 
         where_next = WhereNext()
-        return where_next.where_to()
+        return where_next.check_if_won()
 
     def personal_connection(self):
         pass
@@ -279,7 +280,7 @@ class ConvertEvilOnes(Scene):
     def convert_politicians(self):
         print("they find their spines")
         where_next = WhereNext()
-        return where_next.where_to()
+        return where_next.check_if_won()
 
 
 class BeAnAlly(Scene):
@@ -328,11 +329,19 @@ class AlliesElected(Scene):
 
 class WhereNext(Scene):
 
-    def where_to(self):
+    def check_if_won(self):
 
         solved_scene_totals = sum(solved_scenes.values())
         print(solved_scene_totals)
-        # if solved_scene_totals >= 
+        if solved_scene_totals >= 2:
+            print("You won Panda!")
+        else:
+            return self.where_to()
+
+        
+
+
+    def where_to(self):
 
         print("""
             Now that you've finished with that. Where do you want to go to 
