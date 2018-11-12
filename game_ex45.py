@@ -334,12 +334,10 @@ class WhereNext(Scene):
         solved_scene_totals = sum(solved_scenes.values())
         print(solved_scene_totals)
         if solved_scene_totals >= 2:
-            print("You won Panda!")
+            you_win = YouWin()
+            return you_win.enter()
         else:
             return self.where_to()
-
-        
-
 
     def where_to(self):
 
