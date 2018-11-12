@@ -1,6 +1,14 @@
 from sys import exit
 from random import randint
 
+
+solved_scenes = {
+    "read_book": 0,
+    "personal_connection": 0,
+    "convert_politicians": 0,
+}
+
+
 class Scene(object):
 
     def enter(self):
@@ -212,6 +220,10 @@ class ConvertEvilOnes(Scene):
         pass
 
     def read_book(self):
+
+        # Add to read_book count
+        solved_scenes["read_book"] += 1
+
         print("""
             On your walk, you stop to sit on a park bench. After a little
             while an ederly white man in a suit sits down on the bench next
@@ -238,6 +250,7 @@ class ConvertEvilOnes(Scene):
             His support becomes a key factor in reversing some of the most 
             discriminatory Executive Orders that are on the books.
         """)
+
         where_next = WhereNext()
         return where_next.where_to()
 
@@ -254,12 +267,17 @@ class BeAnAlly(Scene):
 
     def enter(self):
         pass
+    
+    # Need to add to solved_scene
 
 
 class EmpathyMagicSpell(Scene):
 
     def enter(self):
         pass
+    
+        # Need to add to solved_scene
+
 
 class SetBack(Scene):
 
@@ -285,6 +303,8 @@ class AlliesElected(Scene):
 
     def enter(self):
         pass
+
+    # Need to add to solved_scene
 
 
 class WhereNext(Scene):
