@@ -10,9 +10,7 @@ solved_scenes = {
     "allies_elected": 0
 }
 
-# solved_scene_totals = sum(solved_scenes.values())
 solved_scene_totals = []
-
 
 
 class Scene(object):
@@ -159,7 +157,6 @@ class WashingtonDC(Scene):
             print("That is not an option")
             return "washington_dc"
 
-
     def street_meeting(self):
         pass
 
@@ -205,7 +202,6 @@ class NationalParks(Scene):
         return convert.convert_politicians()
         
 
-
 class Recharge(Scene):
 
     recharge_types = [
@@ -227,6 +223,7 @@ class Recharge(Scene):
         where_next = WhereNext()
         return where_next.check_if_won() 
 
+
 class ConvertEvilOnes(Scene):
 
     def enter(self):
@@ -238,7 +235,6 @@ class ConvertEvilOnes(Scene):
         solved_scenes["read_book"] += 1
         print(solved_scenes["read_book"])
         # print(solved_scene_totals)
-
 
         solved_scene_totals = sum(solved_scenes.values())
         # testing - remove later
@@ -330,7 +326,6 @@ class AlliesElected(Scene):
 class WhereNext(Scene):
 
     def check_if_won(self):
-
         solved_scene_totals = sum(solved_scenes.values())
         print(solved_scene_totals)
         if solved_scene_totals >= 2:
@@ -340,7 +335,6 @@ class WhereNext(Scene):
             return self.where_to()
 
     def where_to(self):
-
         print("""
             Now that you've finished with that. Where do you want to go to 
             next: Washington DC, an alt-right meeting, nearby national park, 
