@@ -6,7 +6,12 @@ solved_scenes = {
     "read_book": 0,
     "personal_connection": 0,
     "convert_politicians": 0,
+    "national_park": 0
 }
+
+# solved_scene_totals = sum(solved_scenes.values())
+solved_scene_totals = []
+
 
 
 class Scene(object):
@@ -161,6 +166,13 @@ class WashingtonDC(Scene):
 class NationalParks(Scene):
 
     def enter(self):
+
+        solved_scenes["national_park"] += 1
+
+        solved_scene_totals = sum(solved_scenes.values())
+        # testing - remove later
+        print(solved_scene_totals)
+
         print("""
             The Administration has been busy leasing off National Parklands
             to private industry. These businesses are clearcutting the forests,
@@ -223,6 +235,13 @@ class ConvertEvilOnes(Scene):
 
         # Add to read_book count
         solved_scenes["read_book"] += 1
+        print(solved_scenes["read_book"])
+        # print(solved_scene_totals)
+
+
+        solved_scene_totals = sum(solved_scenes.values())
+        # testing - remove later
+        print(solved_scene_totals)
 
         print("""
             On your walk, you stop to sit on a park bench. After a little
@@ -310,6 +329,11 @@ class AlliesElected(Scene):
 class WhereNext(Scene):
 
     def where_to(self):
+
+        solved_scene_totals = sum(solved_scenes.values())
+        print(solved_scene_totals)
+        # if solved_scene_totals >= 
+
         print("""
             Now that you've finished with that. Where do you want to go to 
             next: Washington DC, an alt-right meeting, nearby national park, 
